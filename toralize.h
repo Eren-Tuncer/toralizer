@@ -19,12 +19,6 @@ typedef unsigned short int int16;
 typedef unsigned int int32;
 
 
-/*		+----+----+----+----+----+----+----+----+----+----+....+----+
-                | VN | CD | DSTPORT |      DSTIP        | USERID       |NULL|
-                +----+----+----+----+----+----+----+----+----+----+....+----+
- # of bytes:	   1    1      2              4           variable       1
-*/
-
 struct proxy_request {
     int8 vn;
     int8 cd;
@@ -32,12 +26,6 @@ struct proxy_request {
     int32 dstip;
     unsigned char userid[8];
 };
-
-
- /*             +----+----+----+----+----+----+----+----+
-                | VN | CD | DSTPORT |      DSTIP        |
-                +----+----+----+----+----+----+----+----+
- # of bytes:	   1    1      2              4*/  
 
 struct proxy_response{
         

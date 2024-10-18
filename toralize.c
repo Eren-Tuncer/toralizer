@@ -20,7 +20,8 @@ int main(int argc, char *argv[]){
     char *hostname;
     int port, s;
     struct sockaddr_in sock;
-
+    Req* req;
+    char buff[ressize];
 
     if (argc<3){
         fprintf(stderr, "Usage: %s <host> <port>\n",
@@ -48,6 +49,23 @@ int main(int argc, char *argv[]){
     }
 
     printf("Connected to proxy\n");
+    
+    req = request(hostname,port);
+    
+    write(s, req, reqsize);
+    
+    memset(buff, 0, ressize); // reset buffer
+    
+    if(read(s, buff, ressize)<1){
+        
+        perror("read");
+        free(req);
+        close(s);
+
+        return -1;
+    }
+    //1. saatte kaldım
+    
     close(s);
 
     return 0;
