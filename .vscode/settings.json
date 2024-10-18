@@ -58,7 +58,9 @@
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
     "stdlib.h": "c",
-    "string.h": "c"
+    "string.h": "c",
+    "toralize.h": "c"
   },
-  "C_Cpp.default.compilerPath": "gcc"
+  "C_Cpp.default.compilerPath": "gcc",
+  "C_Cpp.errorSquiggles": "disabled"
 }

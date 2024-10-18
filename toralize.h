@@ -4,9 +4,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <netinet/in.h>
 
 #define PROXY "127.0.0.1"
-#define PROXYPORT "9050"
+#define PROXYPORT 9050
+#define USERNAME "toraliz"
+#define reqsize sizeof(struct proxy_request)
+#define ressize sizeof(struct proxy_response)
 
 typedef unsigned char int8;
 typedef unsigned short int int16;
@@ -42,5 +48,8 @@ struct proxy_response{
  
  } ;
 
- typedef proxy_request Req;
- typedef proxy_response Res;
+ typedef struct proxy_request Req;
+ typedef struct proxy_response Res;
+
+Req* request(const char*,const int);
+int main(int,char**);
