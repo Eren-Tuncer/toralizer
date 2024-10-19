@@ -81,7 +81,7 @@ int main(int argc, char *argv[]){
 
         return -1;
     }
-    //1.17 de kaldım // proxy çalışmadı
+    //1.17 de kaldım // proxy çalışmadı //proxy setuplamayı bulmam lazım
     printf("Successfully connected through the proxy to"
     "%s:%d", hostname, port);
 
