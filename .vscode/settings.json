@@ -59,7 +59,8 @@
   "files.associations": {
     "stdlib.h": "c",
     "string.h": "c",
-    "toralize.h": "c"
+    "toralize.h": "c",
+    "inet.h": "c"
   },
   "C_Cpp.default.compilerPath": "gcc",
   "C_Cpp.errorSquiggles": "disabled"

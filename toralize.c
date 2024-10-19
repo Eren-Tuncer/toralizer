@@ -3,7 +3,7 @@
 
 Req* request(const char* dstip,const int dstport){
     
-    Request * req = malloc(reqsize);
+    Req * req = malloc(reqsize);
     
     req->vn = 4;
     req->cd = 1;
@@ -21,7 +21,9 @@ int main(int argc, char *argv[]){
     int port, s;
     struct sockaddr_in sock;
     Req* req;
+    Res* res;
     char buff[ressize];
+    int success;
 
     if (argc<3){
         fprintf(stderr, "Usage: %s <host> <port>\n",
@@ -64,9 +66,27 @@ int main(int argc, char *argv[]){
 
         return -1;
     }
-    //1. saatte kaldım
     
-    close(s);
+    res = (Res*)buff;
+    
+    success = (res->cd == 90);
+    
+    if(!success){
+        fprintf(stderr, "Unable to traverse " 
+        "the proxy, error code: %d\n",
+        res->cd);
+        
+        close(s);
+        free(req);
 
+        return -1;
+    }
+    //1.17 de kaldım // proxy çalışmadı
+    printf("Successfully connected through the proxy to"
+    "%s:%d", hostname, port);
+
+    close(s);
+    free(req);
+    
     return 0;
 }

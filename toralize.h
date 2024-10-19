@@ -8,8 +8,8 @@
 #include <arpa/inet.h>
 #include <netinet/in.h>
 
-#define PROXY "127.0.0.1"
-#define PROXYPORT 9050
+#define PROXY "192.168.0.29"
+#define PROXYPORT 1080
 #define USERNAME "toraliz"
 #define reqsize sizeof(struct proxy_request)
 #define ressize sizeof(struct proxy_response)
