@@ -60,7 +60,8 @@
     "stdlib.h": "c",
     "string.h": "c",
     "toralize.h": "c",
-    "inet.h": "c"
+    "inet.h": "c",
+    "unistd.h": "c"
   },
   "C_Cpp.default.compilerPath": "gcc",
   "C_Cpp.errorSquiggles": "disabled"
