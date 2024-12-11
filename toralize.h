@@ -7,6 +7,7 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
+#include <dlfcn.h>
 
 #define PROXY "	141.105.107.152"
 #define PROXYPORT   5678
@@ -39,5 +40,5 @@ struct proxy_response{
  typedef struct proxy_request Req;
  typedef struct proxy_response Res;
 
-Req* request(const char*,const int);
-int main(int,char**);
+Req* request(struct sockaddr_in*);  
+int connect(int , const struct sockaddr *,socklen_t );
