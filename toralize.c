@@ -48,7 +48,7 @@ int main(int argc, char *argv[]){
 
     if(connect(s, (struct sockaddr *)&sock, sizeof(sock))){
         perror("connect");
-        return -1 ;
+        return -1;
     }
 
     printf("Connected to proxy\n");
@@ -82,7 +82,7 @@ int main(int argc, char *argv[]){
 
         return -1;
     }
-    // proxy çalışmadı //proxy setuplamayı bulmam lazım
+    
     printf("Successfully connected through the proxy to "
     "%s:%d\n", hostname, port);
     memset(tmp, 0, 512);

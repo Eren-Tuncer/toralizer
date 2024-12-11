@@ -30,7 +30,7 @@ destination host, and userid, in the following format.
 		+----+----+----+----+----+----+----+----+----+----+....+----+
 		| VN | CD | DSTPORT |      DSTIP        | USERID       |NULL|
 		+----+----+----+----+----+----+----+----+----+----+....+----+
- # of bytes:	   1    1      2              4           variable       1
+ 		   1    1      2              4           variable       1
 
 VN is the SOCKS protocol version number and should be 4. CD is the
 SOCKS command code and should be 1 for CONNECT request. NULL is a byte
