@@ -9,8 +9,8 @@
 #include <netinet/in.h>
 #include <dlfcn.h>
 
-#define PROXY "	141.105.107.152"
-#define PROXYPORT   5678
+#define PROXY "192.111.130.2"
+#define PROXYPORT   4145
 #define USERNAME "toraliz"
 #define reqsize sizeof(struct proxy_request)
 #define ressize sizeof(struct proxy_response)
@@ -41,4 +41,4 @@ struct proxy_response{
  typedef struct proxy_response Res;
 
 Req* request(struct sockaddr_in*);  
-int connect(int , const struct sockaddr *,socklen_t );
+int connect(int , const struct sockaddr*,socklen_t );

@@ -15,10 +15,9 @@ Req* request(struct sockaddr_in * sock2addr){
     
     }
 
-int connect(int sock2, const struct sockaddr *sock2addr,
+int connect(int s2, const struct sockaddr *sock2,
         socklen_t addrlen){
     
-
     int s;
     struct sockaddr_in sock;
     Req* req;
@@ -27,7 +26,7 @@ int connect(int sock2, const struct sockaddr *sock2addr,
     int success;
     char tmp[512];
 
-    int (*cp)(int , const struct sockaddr *,
+    int (*cp)(int , const struct sockaddr*,
                    socklen_t );
 
     
@@ -51,7 +50,7 @@ int connect(int sock2, const struct sockaddr *sock2addr,
 
     printf("Connected to proxy\n");
     
-    req = request((struct sockaddr_in *)sock2addr);
+    req = request((struct sockaddr_in *)sock2);
     
     write(s, req, reqsize); 
     
@@ -69,7 +68,7 @@ int connect(int sock2, const struct sockaddr *sock2addr,
     res = (Res*)buff;
     
     success = (res->cd == 90);
-    
+
     if(!success){
         fprintf(stderr, "Unable to traverse " 
         "the proxy, error code: %d\n",
@@ -81,21 +80,11 @@ int connect(int sock2, const struct sockaddr *sock2addr,
         return -1;
     }
     
-    printf("Successfully connected through the proxy to "
-    "%s:%d\n", hostname, port);
-    memset(tmp, 0, 512);
-    snprintf(tmp, 512
-    ,"HEAD / HTTP/1.0\r\n"
-    "Host: www.networktechnology.org\r\n"
-    "\r\n");
-
-    write(s, tmp, strlen(tmp));
-
-    memset(tmp, 0, 512);
-    read(s, tmp,511);
-    printf("'%s'\n",tmp);
-
-    close(s);
+    printf("Connected through the proxy.\n");
+    
+    
+    dup2(s,s2);
+    
     free(req);
     
     return 0;
